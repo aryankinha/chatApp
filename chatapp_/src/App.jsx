@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import Sidebar from './components/Sidebar/Sidebar'
+import ChatList from './components/ChatList/ChatList'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div className='mt-[200]'>HOw are you </div>
-    </>
+    <div className="container">
+      <Sidebar />
+      <ChatList />
+    </div>
   )
 }
 
