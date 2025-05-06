@@ -2,15 +2,15 @@ import Sidebar from './components/Sidebar/Sidebar'
 import ChatList from './components/ChatList/ChatList'
 import ChatWindow from './components/ChatWindow/ChatWindow'
 import './App.css'
-import { Routes } from 'react-router-dom'
-import { Route } from 'lucide-react'
+import Login from './components/Login/Login'
 
 function App() {
   return (
     <div className="container">
-      <Sidebar />
-      <ChatList />
-      <ChatWindow/>
+      <Login/>
+      {/* <Sidebar/>
+      <ChatList/>
+      <ChatWindow/> */}
     </div>
   )
 }

@@ -1,0 +1,68 @@
+.loginBox{
+    background-color: #FCFAF6;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginContainer {
+    text-align: center;
+    width: 300px;
+    border: 2px solid #507356;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+  
+.loginContainer h2 {
+    color: #162c1a;
+    margin-bottom: 20px;
+}
+  
+form {
+    display: flex;
+    flex-direction: column;
+}
+  
+input[type="text"],
+input[type="password"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+}
+  
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: #777;
+}
+  
+.options a {
+    color: #609748;
+    text-decoration: none;
+}
+  
+button {
+    background-color: #65B742;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+}
+  
+.loginBox img {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    left: 65rem;
+    top: 26rem;
+}
