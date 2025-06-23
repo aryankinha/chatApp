@@ -29,6 +29,9 @@
     padding: 0;
     margin: 0;
 }
+.navBtn li{
+    cursor: pointer;
+}
 
 .colorC {
     margin-top: auto;

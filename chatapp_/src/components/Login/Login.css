@@ -1,6 +1,7 @@
 .loginBox{
     background-color: #FCFAF6;
     width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +25,10 @@ form {
     display: flex;
     flex-direction: column;
 }
-  
-input[type="text"],
-input[type="password"] {
+.loginContainer  
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
     padding: 12px;
     margin-bottom: 15px;
     border: none;
@@ -48,7 +50,7 @@ input[type="password"] {
     text-decoration: none;
 }
   
-button {
+.log_sign_btn {
     background-color: #65B742;
     color: white;
     border: none;
@@ -65,4 +67,36 @@ button {
     position: absolute;
     left: 65rem;
     top: 26rem;
+}
+
+.signupText {
+    margin-top: 1rem;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.signupText .signupLink {
+    color: #507356;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+
+
+
+
+.signupText {
+    margin-top: 1rem;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.signupText .signupLink {
+    color: #507356;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: none;
 }

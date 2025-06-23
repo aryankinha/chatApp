@@ -2,23 +2,24 @@ import { CircleDashed, Search } from 'lucide-react'
 import React, {useEffect,useState} from 'react'
 import "./ChatList.css"
 import User from '../User/User'
+import {fetchData , getData} from '../../api/Data.js'
+
 const ChatList = () => {
     const [dataArr, setDataArr] = useState([])
+    const [val, setVAL] = useState("")
+
+    let filterDATA = [...dataArr]
+    filterDATA = dataArr.filter((user) =>
+        user.name.toLowerCase().includes(val.toLowerCase())
+    );
+    
     useEffect(() => {
-        fetch('https://dummyjson.com/users')
-        .then(res => res.json())
-        .then( users => {
-            users = users.users
-            const arr = users.map((ele) => {
-                return {
-                  name: ele.firstName,
-                  imgL: ele.image,
-                  text: ele.eyeColor
-                };
-              })
-            setDataArr(arr)
-            })
-    }, [])
+        const loadData = async () => {
+            await fetchData();
+            setDataArr(getData());
+        };
+        loadData()
+    },[])
     
     return (
     <div className='chatlist'>
@@ -30,14 +31,17 @@ const ChatList = () => {
 
         <div className='search'>
             <Search/>
-            <input type='text' placeholder='Search'/>
+            <input type='text' placeholder='Search'
+            value={val}
+            onChange={ (e) => setVAL(e.target.value )}
+            />
         </div>
 
 
         <div className='useList'>
         {
-            dataArr.map( ele => (
-                <User imgL={ele.imgL} name={ele.name} text={ele.text}/>
+            filterDATA.map( (ele,idx) => (
+                <User key={idx} imgL={ele.imgL} name={ele.name} text={ele.text}/>
             ))
         }
 

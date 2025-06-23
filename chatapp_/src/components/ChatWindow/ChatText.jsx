@@ -1,16 +1,28 @@
 import { Send } from 'lucide-react'
-import React from 'react'
+import React,{useState} from 'react'
 import "./ChatText.css"
 
-const ChatText = () => {
+const ChatText = ({addTEXT}) => {
+
+  const [value, setvalue] = useState("")
+
   return (
     <div className="inputContainer">
       <input 
         type="text" 
-        className="chat-input" 
+        className="chatTEXT" 
         placeholder="Write a message..."
+        value={value}
+        onChange={ (e) => {
+          setvalue(e.target.value)
+        }}
       />
-      <div className='sendBtn'>
+      <div className='sendBtn' onClick={ () => {
+        if(value){
+          addTEXT(value)
+          setvalue("")
+        }
+      }}>
         <Send/>
       </div>
     </div>
