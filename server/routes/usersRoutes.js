@@ -7,8 +7,8 @@ import {
 
 const router = express.Router();
 
-router.get("/:userId/get-contact", getContact);
+router.get("/:userId/get-contacts", getContact);
 router.post("/:userId/add-contact", addContact);
-router.delete("/:userId/add-contact", deleteContact);
+router.delete("/contacts/:contactId", deleteContact);
 
 export default router;
