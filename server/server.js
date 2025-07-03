@@ -1,6 +1,7 @@
 import express from "express"
 import dotenv from "dotenv"
 import authRoutes from "./routes/authRoutes.js"
+import usersRoutes  from "./routes/usersRoutes.js"
 import { errorMiddleware } from "./middleware/errorMiddleware.js" 
 
 
@@ -13,6 +14,7 @@ const app = express()
 app.use(express.json())
 
 app.use("/auth",authRoutes)
+app.use("/users",usersRoutes)
 
 app.use(errorMiddleware)
 

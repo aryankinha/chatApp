@@ -6,3 +6,12 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE contacts (
+    id VARCHAR(36) PRIMARY KEY,
+    userId VARCHAR(36) NOT NULL,
+    contactName VARCHAR(100) NOT NULL,
+    contactEmail VARCHAR(100) NOT NULL,
+
+    FOREIGN KEY (userId) REFERENCES users(id)
+);
