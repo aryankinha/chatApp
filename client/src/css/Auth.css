@@ -1,4 +1,4 @@
-.loginBox{
+.authBox{
     background-color: #FCFAF6;
     width: 100vw;
     height: 100vh;
@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 }
-.loginContainer {
+.authContainer {
     text-align: center;
     width: 300px;
     border: 2px solid #507356;
@@ -14,43 +14,22 @@
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
-  
-.loginContainer h2 {
+.authContainer h2 {
     color: #162c1a;
     margin-bottom: 20px;
 }
-  
-form {
+.authContainer form {
     display: flex;
     flex-direction: column;
 }
-.loginContainer  
-    input[type="text"],
-    input[type="password"],
-    input[type="email"] {
+.authContainer input{
     padding: 12px;
     margin-bottom: 15px;
     border: none;
     border-radius: 5px;
     background-color: #e6e6e6;
 }
-  
-.options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    margin-bottom: 20px;
-    color: #777;
-}
-  
-.options a {
-    color: #609748;
-    text-decoration: none;
-}
-  
-.log_sign_btn {
+.authContainer form button{
     background-color: #65B742;
     color: white;
     border: none;
@@ -60,43 +39,24 @@ form {
     font-weight: bold;
     font-size: 1em;
 }
-  
-.loginBox img {
+
+.authBox p{
+    margin-top: 1rem;
+    font-size: 0.9em;
+    color: #555;
+}
+.authBox p .authLink{
+    color: #507356;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.authBox img {
     width: 400px;
     height: auto;
     position: absolute;
     left: 65rem;
     top: 26rem;
-}
-
-.signupText {
-    margin-top: 1rem;
-    font-size: 0.9em;
-    color: #555;
-}
-
-.signupText .signupLink {
-    color: #507356;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 5px;
-    text-decoration: none;
-}
-
-
-
-
-
-.signupText {
-    margin-top: 1rem;
-    font-size: 0.9em;
-    color: #555;
-}
-
-.signupText .signupLink {
-    color: #507356;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 5px;
-    text-decoration: none;
 }

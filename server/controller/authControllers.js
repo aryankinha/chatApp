@@ -3,7 +3,9 @@ import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
 
 export const login = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  console.log(req.body);
+  const { email, password } = req.body;
+  
   try {
     //checking that email exists or not
     const [rows] = await db.query("SELECT * FROM users WHERE email = ?", [
@@ -18,6 +20,7 @@ export const login = async (req, res, next) => {
       return res.status(401).json({ message: "Password is incorrect" });
 
     const id = user.id
+    const name = user.name
     res
       .status(200)
       .json({ message: "You are logged in", user: { id,name, email } });
