@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
 
 export const login = async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { email, password } = req.body;
   
   try {

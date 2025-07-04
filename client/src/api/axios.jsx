@@ -15,3 +15,15 @@ export const LoginUser = (userData) => {
 export const SignupUser = (userData) => {
     return api.post("/auth/signup",userData)
 }
+
+export const getContact = (userId) => {
+    return api.get(`/users/${userId}/get-contacts`)
+}
+
+export const addContact = (userId,data) => {
+    return api.post(`/users/${userId}/add-contact`,data)
+}
+
+export const deleteContact = (userId,contactId) => {
+    return api.delete(`/users/${userId}/contacts/${contactId}`)
+}

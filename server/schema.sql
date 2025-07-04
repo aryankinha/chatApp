@@ -14,6 +14,7 @@ CREATE TABLE contacts (
     contactEmail VARCHAR(100) NOT NULL,
 
     FOREIGN KEY (userId) REFERENCES users(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE messages (
@@ -23,6 +24,9 @@ CREATE TABLE messages (
     content TEXT NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (userId) REFERENCES users(id)
+    ON DELETE CASCADE,
+
     FOREIGN KEY (contactId) REFERENCES contacts(id)
+    ON DELETE CASCADE
 );
