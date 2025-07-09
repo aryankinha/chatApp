@@ -26,7 +26,7 @@ CREATE TABLE messages (
 
     FOREIGN KEY (userId) REFERENCES users(id)
     ON DELETE CASCADE,
-
+    
     FOREIGN KEY (contactId) REFERENCES contacts(id)
     ON DELETE CASCADE
 );

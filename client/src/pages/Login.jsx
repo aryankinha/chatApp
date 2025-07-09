@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { LoginUser } from "../api/axios.jsx";
 import { UserContext } from "../context/UserContext.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginIMG from "../assets/logo_img.jpg";
 import "../css/Auth.css";
 
 const Login = () => {
+  const navigate = useNavigate()
   const [userData, setUserData] = useState({ email: "", password: "" });
 
   const { setUser } = useContext(UserContext);
@@ -20,11 +21,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await LoginUser(userData);
-      console.log(res);
+      // console.log(res);
       const data = res.data.user;
-      setUser((prev) => {
-        return { ...prev, data };
-      });
+      setUser(data);
+      navigate("/home")
       alert(res.data.message);
     } catch (error) {
       console.log(error);
@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className="authBox">
-      <div class="authContainer">
+      <div className="authContainer">
         <h2>LOGIN</h2>
         <form onSubmit={handleSubmit}>
           <input

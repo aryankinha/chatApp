@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { SignupUser } from "../api/axios.jsx";
 import { UserContext } from "../context/UserContext.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginIMG from "../assets/logo_img.jpg";
 import "../css/Auth.css";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -25,9 +26,8 @@ const Signup = () => {
     try {
       const res = await SignupUser(userData);
       const data = res.data.user;
-      setUser((prev) => {
-        return { ...prev, data };
-      });
+      setUser(data);
+      navigate("/home")
       // console.log(data);
       alert(res.data.message);
     } catch (error) {

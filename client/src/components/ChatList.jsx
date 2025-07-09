@@ -11,23 +11,30 @@ const ChatList = () => {
   const { theme } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
 
+  const [value, setValue] = useState("")
+
   const [somethingChange, setSomethingChange] = useState(true)
   const [contactsList, setContactsList] = useState([]);
 
   const [toShow,setToShow] = useState(false)
 
-  const handelGetContacts = async () => {
-    try {
-      const res = await getContact(user.id);
-      setContactsList(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  
   useEffect(() => {
+    const handelGetContacts = async () => {
+      try {
+        const res = await getContact(user.id);
+        setContactsList(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     handelGetContacts();
   }, [somethingChange]);
+
+  const filteredContacts = contactsList.filter((contact) =>
+    contact.contactName.toLowerCase().includes(value.toLowerCase())
+  );
+
 
   return (
     <>
@@ -46,11 +53,14 @@ const ChatList = () => {
 
       <div className="search" style={{ color: !theme ? "#ffffff" : "#2d3748" }}>
         <Search />
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" 
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        />
       </div>
 
       <div className="contactList">
-        {contactsList.map((contact) => {
+        {filteredContacts.map((contact) => {
           const { id, contactName } = contact;
           return <Contact key={id} contactName={contactName} id={id} setSomethingChange={setSomethingChange}/>;
         })}

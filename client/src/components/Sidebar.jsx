@@ -10,8 +10,10 @@ import {
 import { ThemeContext } from "../context/ThemeContext.jsx";
 import "../css/Sidebar.css";
 import PersonalDetails from "./PersonalDetails.jsx";
+import { UserContext } from "../context/UserContext.jsx";
 
 const Sidebar = () => {
+  const {setUser} = useContext(UserContext)
   const { theme,setTheme } = useContext(ThemeContext);
   const [toShow, setToShow] = useState(false)
   return (
@@ -37,7 +39,7 @@ const Sidebar = () => {
         <ul className="navBtn">
           <li onClick={() => setTheme(!theme)}>{theme? <Sun size={28}/> : <Moon size={28}/>}</li>
           <li>
-            <LogOut size={28} color="red"/>
+            <LogOut onClick={() => setUser(null)} size={28} color="red"/>
           </li>
         </ul>
       </div>
