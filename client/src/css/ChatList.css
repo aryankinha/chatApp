@@ -1,5 +1,5 @@
 .chatList {
-  width: 30vw;
+  width: 25vw;
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -52,6 +52,7 @@
 }
 
 .user-info {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.75rem;

@@ -27,3 +27,11 @@ export const addContact = (userId,data) => {
 export const deleteContact = (userId,contactId) => {
     return api.delete(`/users/${userId}/contacts/${contactId}`)
 }
+
+export const getMessages = (userId,contactId) => {
+    return api.get(`/users/${userId}/messages/${contactId}`)
+}
+
+export const addMessages = (userId,contactId,message) => {
+    return api.post(`/users/${userId}/messages/${contactId}`,message)
+}

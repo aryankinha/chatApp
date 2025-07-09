@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import appLogo from "../assets/app_Logo.png";
 import {
   LogOut,
@@ -9,10 +9,13 @@ import {
 } from "lucide-react";
 import { ThemeContext } from "../context/ThemeContext.jsx";
 import "../css/Sidebar.css";
+import PersonalDetails from "./PersonalDetails.jsx";
 
 const Sidebar = () => {
   const { theme,setTheme } = useContext(ThemeContext);
+  const [toShow, setToShow] = useState(false)
   return (
+    <>
     <div className="sidebar" style={{
         backgroundColor : theme ? "#ffffff" : "#121212",
         color : !theme ? "#ffffff" : "#121212",
@@ -25,7 +28,7 @@ const Sidebar = () => {
             <MessageCircleMore size={28}/>
           </li>
           <li>
-            <UserRoundCog size={28}/>
+            <UserRoundCog size={28} onClick={() => setToShow(prev => !prev)}/>
           </li>
         </ul>
       </div>
@@ -39,6 +42,8 @@ const Sidebar = () => {
         </ul>
       </div>
     </div>
+    {toShow && <PersonalDetails setToShow={setToShow}/>}
+    </>
   );
 };
 

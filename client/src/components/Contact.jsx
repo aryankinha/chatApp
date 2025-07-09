@@ -4,10 +4,18 @@ import { ThemeContext } from "../context/ThemeContext.jsx";
 import { Trash } from "lucide-react";
 import { UserContext } from "../context/UserContext.jsx";
 import { deleteContact } from "../api/axios.jsx";
+import { SelectedPersonContext } from "../context/SelectedPersonContext.jsx";
+
 
 const Contact = ({contactName,id,setSomethingChange}) => {
   const { theme } = useContext(ThemeContext);
-  const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext)
+  const {setPerson} = useContext(SelectedPersonContext)
+
+  const handelPerson = () => {
+    setPerson({id,contactName})
+  }
+
 
   const handelClick = async (id) => {
     try {
@@ -22,7 +30,7 @@ const Contact = ({contactName,id,setSomethingChange}) => {
 
   return (
     <div className="user-row" key={id}>
-      <div className="user-info">
+      <div className="user-info" onClick={handelPerson}>
         <div className="user-avatar">
           <h3>{contactName.trim()[0].toUpperCase()}</h3>
         </div>

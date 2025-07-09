@@ -4,7 +4,7 @@ import {v4 as uuid4} from "uuid"
 export const getMessages = async (req,res,next) => {
     const {userId, contactId} = req.params
     try {
-        const [rows] = await db.query("SELECT * FROM messages WHERE userId = ? and contactId = ?",[userId,contactId])
+        const [rows] = await db.query("SELECT * FROM messages WHERE userId = ? and contactId = ? ORDER BY createdAt",[userId,contactId])
         res.status(200).json({messages : rows})
     } catch (err) {
         next(err)
