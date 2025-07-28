@@ -10,7 +10,6 @@ import Landing from "./pages/Landing.jsx";
 function App() {
   return (
     <>
-    {/* <PersonalDetails/> */}
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />

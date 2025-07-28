@@ -1,22 +1,60 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../css/Landing.css';
+import React from "react";
+import "../css/Landing.css";
+import Navbar from "../components/Navbar";
+import FloatingMessage from "../components/FloatingMessage";
 
 const Landing = () => {
-  const navigate = useNavigate();
+  const floatingMessages = [
+    {
+      src: "https://randomuser.me/api/portraits/women/2.jpg",
+      message: "How are you?",
+    },
+    {
+      src: "https://randomuser.me/api/portraits/men/5.jpg",
+      message: "Let's catch up later!",
+    },
+    {
+      src: "https://randomuser.me/api/portraits/women/12.jpg",
+      message: "Good morning!",
+    },
+    {
+      src: "https://randomuser.me/api/portraits/men/8.jpg",
+      message: "See you soon 👋",
+    },
+    {
+      src: "https://randomuser.me/api/portraits/women/25.jpg",
+      message: "Miss you!",
+    },
+    {
+      src: "https://randomuser.me/api/portraits/men/23.jpg",
+      message: "That sounds great!",
+    },
+  ];
 
   return (
-    <div className="landing-root">
-      <div className="landing-card minimal">
-        <h1 className="landing-title">Welcome to ChatApp</h1>
-        <p className="landing-subtitle">Fast. Secure. Modern chat for everyone.</p>
-        <div className="landing-btns side-by-side">
-          <button className="landing-btn" onClick={() => navigate('/login')}>Log In</button>
-          <button className="landing-btn secondary" onClick={() => navigate('/signup')}>Sign Up</button>
+    <>
+      <Navbar />
+      <div className="landing-container">
+        <div className="center-text">
+          <h1>
+            With private messaging and calling, you can be yourself, speak
+            freely and feel close to the most important people in your life no
+            matter where they are.
+          </h1>
         </div>
       </div>
-    </div>
+      {
+        floatingMessages.map(ele => {
+          return (
+            <FloatingMessage
+            src={ele.src}
+            message={ele.message}/>
+          )
+        })
+      }
+      
+    </>
   );
 };
 
-export default Landing; 
+export default Landing;

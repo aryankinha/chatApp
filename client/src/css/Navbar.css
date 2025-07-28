@@ -1,0 +1,73 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px 40px;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;         /* Increased size */
+  height: 50px;
+  margin-right: 12px;
+}
+
+.brand-name {
+  font-size: 28px;     /* Bigger font */
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #1c1c1e;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.login-btn {
+  background: transparent;
+  border: 2px solid #1c1c1e;
+  color: #1c1c1e;
+}
+
+.login-btn:hover {
+  background: #1c1c1e;
+  color: #fff;
+}
+
+.signup-btn {
+  background: #1c1c1e;
+  color: #fff;
+}
+
+.signup-btn:hover {
+  background: #000;
+}
